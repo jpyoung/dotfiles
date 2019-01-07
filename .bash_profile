@@ -49,3 +49,12 @@ prompt
 
 zipf () { zip -r "$1".zip "$2" ; }          # zipf:         To create a ZIP archive of a folder
 alias numFiles='echo $(ls -l | wc -l)'      # numFiles:     Count of the non-hidden files in the current dir
+
+
+function allgrep() {
+  find . -type f \( -name '*' -o -name '*.*' -o -name '.*' \) -print0 | xargs -0 grep --color -n "$@"
+}
+
+function findfile() {
+  find . -iname "$1"
+}
